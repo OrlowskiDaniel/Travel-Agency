@@ -19,7 +19,10 @@ main {
 :root {
     --dark-blue: rgba(0, 59, 149, 1);
     --light-blue: #0071c2;
+    --lighter-blue: #5fbafc;
     --light-gray: rgb(206, 206, 206);
+    --yellow: rgba(255, 240, 142, 1);
+    --red: rgba(255, 142, 142, 1);
 }
 
 /* Buttons styles */
@@ -42,7 +45,7 @@ main {
 
     background-color: #ffffff;
     color: var(--light-blue);
-    border: 2px solid --light-blue;
+    border: 2px solid var(--light-blue);
     font-size: 16px;
     font-weight: 700;
     border-radius: 4px;
@@ -53,6 +56,42 @@ main {
     background-color: #e6f0fa;
 }
 
+.edit-button {
+    padding: 15px 25px;
+    border-radius: 100px;
+    background-color: var(--yellow);
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    cursor: pointer;
+
+}
+.delete-button {
+    padding: 15px 25px;
+    border-radius: 100px;
+    background-color: var(--yellow);
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    cursor: pointer;
+
+}
 /* Hover animation style */
 .gray-hover {
     cursor: pointer;
@@ -62,8 +101,17 @@ main {
     background-color: gray;
 }
 
+.blue-hover {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.blue-hover:hover {
+    background-color: var(--lighter-blue);
+}
+
+
+/* Input styles */
 .input-style-1 {
-    background: none;
     outline: none;
     font-weight: 700;
     font-size: 16px;
@@ -72,6 +120,24 @@ main {
     border: 2px solid rgb(148, 148, 148);
     padding: 5px 20px;
 }
+
+.input-style-2 {
+    outline: none;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(148, 148, 148);
+    padding: 5px 20px;
+}
+
+/* Box styles */
+.box-style-1 {
+
+}
+.box-style-2 {
+
+}
+
 
 /* 
 *   End main styles
@@ -175,6 +241,42 @@ nav a {
     border: 0px;
 }
 
+
+
+.index-titel {
+    height: 140px;
+    background-color: var(--dark-blue);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.flight-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    
+}
+.flight-search-background {
+    background-color: var(--light-gray);
+    padding: 4px;
+    border-radius: 8px;
+}
+.flight-search-input {
+    width: 200px;
+    height: 30px;
+}
+.flight-search-button {
+    width: 120px;
+    height: 42px;
+}
+
+
 .login {
     display: flex;
     flex-direction: row;
@@ -273,6 +375,64 @@ nav a {
     height: 40px;
 }
 
+
+
+.contact-page {
+    display: flex;
+    justify-content: space-between;
+    margin: 5vw 10vw;
+    font-size: 18px;
+}
+.contact-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.contact-page h3, h4 {
+    color: var(--dark-blue);
+}
+.contact-info-page {
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+}
+.contact-info-page div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+}
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+.contact-form form p input {
+    width: 100%;
+    height: 35px;
+    padding: 5px;
+    font-size: 17px;
+}
+.textarea {
+    /* Make txetareas */
+}
+.contact-form-button {
+    width: 40%;
+    align-self: center;
+    height: 45px;
+}
+.contact-form-button input {
+    border-radius: 10px;
+    border-style: none;
+}
+
+
 footer {
     background-color: var(--dark-blue);
     color: white;
@@ -303,8 +463,6 @@ footer a {
     flex-direction: column;
     gap: 7px;
 }
-
-
 .additional-info {
     display: flex;
     justify-content: center;
@@ -315,14 +473,33 @@ footer a {
 
 .admin-side-bar {
     width: 20%;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    border-right: 2px solid var(--light-gray);
+    border-bottom: 2px solid var(--light-gray);
+    border-bottom-right-radius: 20px;
+}
+.admin-user-box {
+    width: 240px;
+    height: 60px;
+    font-weight: 600;
+    font-size: 18px;
+    border: 2px solid var(--light-gray);
+    border-radius: 30px;
+    text-align: center;
 }
 .admin-side-bar ul {
     width: 100%;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .admin-side-bar li {
-    height: 50px;
+    height: 55px;
 }
 .admin-side-bar a {
     height: 100%;
@@ -331,39 +508,29 @@ footer a {
     display: flex;
     align-items: center;
     color: black;
-    border: 2px black solid;
+    
+    border-radius: 20px;
+    font-weight: 700;
 }
-.log-out-button {
-    width: 100%;
-    height: 40px;
-    background-color: rgba(243, 78, 78, 0.793);
+.admin-side-bar a.active {
+    /* 
+    * make the button blue if on its page
+    */
 }
-
-.admin-side-bar {
-    width: 20%;
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-.admin-side-bar ul {
-    width: 100%;
-    list-style: none;
+.admin-side-bar form {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
     
+    justify-content: center;
 }
-
-.admin-side-bar li {
+.admin-log-out-button {
+    border: none;
+    width: 80%;
     height: 50px;
+    background-color: var(--lighter-blue);
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 18px;
 }
-.admin-side-bar a {
-    height: 100%;
-    padding: 0 30px;
-    text-decoration: none;
-    color: black;
-    border: 2px black solid;
-    
-}
-
 
 @media(max-width: 1100px){
     .hideOnMobile {

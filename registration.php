@@ -17,10 +17,10 @@
                 </div>
                 <form name="registration" action="./dbcalls/register.php" method="post">
                     
-                    <p>Username (required) <br><input class="input-style-1" type="text" name="username" required></p>
-                    <p>E-mail addres (required) <br><input class="input-style-1" type="text" name="email" required></p>
-                    <p>Telephone number (required) <br><input class="input-style-1" type="text" name="phonenumber" required></p>
-                    <p>Password (required) <br><input class="input-style-1" type="password" name="password" required></p>
+                    <p>Username (required) <br><input class="input-style-1" type="text" name="username" placeholder="name" required></p>
+                    <p>E-mail addres (required) <br><input class="input-style-1" type="text" name="email" placeholder="name@email.com" required></p>
+                    <p>Telephone number (required) <br><input class="input-style-1" type="text" name="phonenumber" placeholder="890-789-456" required></p>
+                    <p>Password (required) <br><input class="input-style-1" type="password" name="password" placeholder="password" required></p>
                     <p class="registration-form-button"><input class="button-style-1" type="submit" name="send" value="Sign in"></p>
                 </form>
             </div>
