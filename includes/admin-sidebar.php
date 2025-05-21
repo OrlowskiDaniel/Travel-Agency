@@ -6,7 +6,7 @@
         <li><a href="./admin.php" class="blue-hover">Dashboard</a></li>
         <li><a href="./admin-users.php" class="blue-hover">Users</a></li>
         <li><a href="./admin-bookings.php" class="blue-hover">Booking</a></li>
-        <li><a href="./admin-message.php" class="blue-hover">Messages</a></li>
+        <li><a href="./admin-messages.php" class="blue-hover">Messages</a></li>
         <li><a href="./admin-vlight.php" class="blue-hover">Edit Vlights</a></li>
         <li><a href="./admin-hotel.php" class="blue-hover">Edit Hotels</a></li>
 

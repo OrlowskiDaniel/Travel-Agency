@@ -38,7 +38,8 @@
                 <p>First and Last name (required) <br><input class="input-style-2" type="text" name="name" required></p>
                 <p>E-mail addres (required) <br><input class="input-style-2" type="text" name="mail" required></p>
                 <p>Telephone number (required) <br><input class="input-style-2" type="text" name="number" required></p>
-                <p>Comment: <br><input class="textarea input-style-2" type="text" name="comment"></p>
+                <p>Company name (optional)<br><input class="input-style-2" type="text" name="company"></p>
+                <p>Comment (required)<br><input class="textarea input-style-2" type="text" name="comment" required></p>
                 <input class="contact-form-button button-style-1" type="submit" name="send">
             </form>
         </div>

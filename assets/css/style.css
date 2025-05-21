@@ -21,6 +21,7 @@ main {
     --light-blue: #0071c2;
     --lighter-blue: #5fbafc;
     --light-gray: rgb(206, 206, 206);
+    --dark-gray: rgb(148, 148, 148);
     --yellow: rgba(255, 240, 142, 1);
     --red: rgba(255, 142, 142, 1);
 }
@@ -67,27 +68,19 @@ main {
 
     border: 0;
 
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-
     cursor: pointer;
 
 }
 .delete-button {
     padding: 15px 25px;
     border-radius: 100px;
-    background-color: var(--yellow);
+    background-color: var(--red);
     background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
     box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     font-size: 16px;
 
     border: 0;
-
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 
     cursor: pointer;
 
@@ -117,7 +110,7 @@ main {
     font-size: 16px;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(97, 139, 255);
-    border: 2px solid rgb(148, 148, 148);
+    border: 2px solid var(--dark-gray);
     padding: 5px 20px;
 }
 
@@ -126,16 +119,20 @@ main {
     font-weight: 700;
     font-size: 16px;
     border-radius: 5px;
-    border: 2px solid rgb(148, 148, 148);
+    border: 2px solid var(--dark-gray);
     padding: 5px 20px;
 }
 
 /* Box styles */
 .box-style-1 {
-
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 10px;
+    border: none;
 }
 .box-style-2 {
-
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 20px;
+    border: 2px solid var(--light-gray);
 }
 
 
@@ -276,6 +273,23 @@ nav a {
     height: 42px;
 }
 
+.search-results-section {
+    margin: 20px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-result-flight {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px;
+    padding-bottom: 50px;
+    cursor: pointer;
+}
+
+
 
 .login {
     display: flex;
@@ -301,7 +315,7 @@ nav a {
     gap: 30px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: rgb(206, 206, 206);
+    background-color: var(--light-gray);
 }
 .login-form h2 {
     font-size: 50px;
@@ -469,6 +483,27 @@ footer a {
     align-items: center;
 }
 
+.admin-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(236, 236, 236);
+}
+.admin-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: whitesmoke;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 2px solid var(--light-gray);
+    padding: 20px;
+    
+}
+.admin-content h2 {
+    text-align: center;
+}
 
 
 .admin-side-bar {
@@ -476,11 +511,13 @@ footer a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: flex-start;
     gap: 30px;
     padding: 20px;
     border-right: 2px solid var(--light-gray);
     border-bottom: 2px solid var(--light-gray);
     border-bottom-right-radius: 20px;
+    background-color: whitesmoke;
 }
 .admin-user-box {
     width: 240px;
@@ -519,7 +556,6 @@ footer a {
 }
 .admin-side-bar form {
     display: flex;
-    
     justify-content: center;
 }
 .admin-log-out-button {
@@ -531,6 +567,39 @@ footer a {
     font-weight: 800;
     font-size: 18px;
 }
+
+
+.all-users-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.admin-users-box {
+    width: 280px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.all-messages-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.admin-message-box {
+    width: 280px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
 
 @media(max-width: 1100px){
     .hideOnMobile {
