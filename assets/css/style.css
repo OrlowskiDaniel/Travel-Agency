@@ -192,6 +192,9 @@ nav a {
     border-radius: 40px;
     height: 40px;
 }
+.header-button a {
+    border-radius: 40px;
+}
 
 .header-sidebar {
     position: fixed;
@@ -208,7 +211,7 @@ nav a {
     background-color: rgba(0, 0, 0, 0.41);
     
 }
-.-header-sidebar li {
+.header-sidebar li {
     width: 100%;
 }
 .header-sidebar a {
@@ -237,10 +240,15 @@ nav a {
     background-color: transparent;
     border: 0px;
 }
+#header a.active {
+    background-color: var(--dark-gray);
+    
+}
 
-
-
-.index-titel {
+.main-search-section {
+    margin-bottom: 100px;
+}
+.main-search-titel{
     height: 140px;
     background-color: var(--dark-blue);
     color: whitesmoke;
@@ -251,6 +259,7 @@ nav a {
     gap: 20px;
     font-size: 20px;
 }
+
 
 .flight-search-form {
     display: flex;
@@ -273,6 +282,39 @@ nav a {
     height: 42px;
 }
 
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+.photo-grid .img-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.photo-grid div img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    
+}
+.img-text {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.03);
+}
+
+
 .search-results-section {
     margin: 20px 160px;
     display: flex;
@@ -282,11 +324,92 @@ nav a {
 
 .search-result-flight {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: space-evenly;
+    gap: 10vw;
     padding: 20px;
     padding-bottom: 50px;
     cursor: pointer;
+}
+.flight-options {
+    display: none;
+}
+
+
+
+
+.hotel-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+    
+}
+.hotel-search-background {
+    background-color: var(--light-gray);
+    padding: 5px;
+    border-radius: 5px; 
+}
+.hotel-search-input {
+    width: 200px;
+    height: 30px;
+}
+.hotel-search-person {
+    width: 100px;
+}
+.hotel-search-button {
+    width: 120px;
+    height: 42px;
+}
+
+
+.search-results-section {
+    margin: 20px 220px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px;
+}
+.search-results-section h2 {
+    align-self: flex-start;
+}
+.search-result-hotels {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+    width: 1000px;
+    height: 160px;
+}
+.search-result-hotels h3 {
+    color: var(--light-blue);
+}
+
+.hotel-foto {
+    width: 30%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.hotel-foto img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 10px;
+
+}
+.hotel-description {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    font-weight: 480;
+}
+.hotel-button {
+    width: 15%;
+    display: flex;
+    align-items: start;
+    
+}
+.show-hotel-button {
+    padding: 10px;
 }
 
 
@@ -297,7 +420,10 @@ nav a {
     justify-content: space-between;
     height: 100vh;
     overflow: hidden;
-    
+    background-image: url(../img/beach-rock.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .login-background {
     height: 100%;
@@ -315,7 +441,8 @@ nav a {
     gap: 30px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: var(--light-gray);
+    background-color: rgb(169, 184, 195);
+    
 }
 .login-form h2 {
     font-size: 50px;
@@ -343,7 +470,10 @@ nav a {
 .registration-page {
     display: flex;
     justify-content: space-between;
-    
+    background-image: url(../img/indiana.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-size: 18px;
 }
 .registration-page h4 {
@@ -357,7 +487,7 @@ nav a {
     width: 50%;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: var(--light-gray);
+    background-color: rgb(170, 184, 195);
 }
 .registration-info {
     display: flex;
@@ -506,7 +636,7 @@ footer a {
 }
 
 
-.admin-side-bar {
+#admin-side-bar {
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -528,17 +658,17 @@ footer a {
     border-radius: 30px;
     text-align: center;
 }
-.admin-side-bar ul {
+#admin-side-bar ul {
     width: 100%;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.admin-side-bar li {
+#admin-side-bar li {
     height: 55px;
 }
-.admin-side-bar a {
+#admin-side-bar a {
     height: 100%;
     padding: 0 30px;
     text-decoration: none;
@@ -549,12 +679,13 @@ footer a {
     border-radius: 20px;
     font-weight: 700;
 }
-.admin-side-bar a.active {
+#admin-side-bar a.active {
     /* 
     * make the button blue if on its page
     */
+    background-color: var(--lighter-blue);
 }
-.admin-side-bar form {
+#admin-side-bar form {
     display: flex;
     justify-content: center;
 }
@@ -562,7 +693,8 @@ footer a {
     border: none;
     width: 80%;
     height: 50px;
-    background-color: var(--lighter-blue);
+    background-color: var(--light-blue);
+    color: whitesmoke;
     border-radius: 20px;
     font-weight: 800;
     font-size: 18px;
@@ -583,7 +715,10 @@ footer a {
     justify-content: space-around;
     padding: 20px;
 }
-
+.buttons-users {
+    display: flex;
+    gap: 5vw;
+}
 .all-messages-box {
     display: flex;
     flex-wrap: wrap;
@@ -599,6 +734,44 @@ footer a {
     padding: 20px;
 }
 
+
+.admin-flights-table td,.admin-flights-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.admin-flights-table tr:nth-child(even){
+    background-color: #ddd;
+}
+
+.admin-flights-table th {
+    text-align: left;
+    background-color: var(--light-blue);
+    color: white;
+}
+.buttons-admin-wrap {
+    position: relative;
+}
+.admin-buttons {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    border: 1px solid #ccc;
+    z-index: 100;
+    min-width: 100px;
+}
+.admin-tabel-button {
+    border-radius: 0;
+    width: 100%;
+}
+.admin-buttons form {
+    margin: 0;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.admin-buttons form:hover {
+    background-color: #f0f0f0;
+}
 
 
 @media(max-width: 1100px){
