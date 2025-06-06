@@ -34,10 +34,10 @@
                 <p>tel. +31 32 732 24 89</p>
                 <p>restaurnt@emailaddres.nl</p>
             </div>
-            <form name="contact" action="./dbcalls/add-to-reservation.php" method="post">
+            <form name="contact" action="./dbcalls/add-message.php" method="post">
                 <p>First and Last name (required) <br><input class="input-style-2" type="text" name="name" required></p>
                 <p>E-mail addres (required) <br><input class="input-style-2" type="text" name="mail" required></p>
-                <p>Telephone number (required) <br><input class="input-style-2" type="text" name="number" required></p>
+                <p>Telephone number (required) <br><input class="input-style-2" type="text" name="phonenumber" required></p>
                 <p>Company name (optional)<br><input class="input-style-2" type="text" name="company"></p>
                 <p>Comment (required)<br><input class="textarea input-style-2" type="text" name="comment" required></p>
                 <input class="contact-form-button button-style-1" type="submit" name="send">
