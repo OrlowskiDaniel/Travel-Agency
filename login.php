@@ -6,9 +6,8 @@
 <body>
     <main>
         <section class="login">
-            <div class="login-background">
-                <!-- Add some cool side foto -->
-                <img src="" alt="" class="login-image">
+            <div class="login-div">
+                
             </div>
             <div class="login-form">
                 <a href="index.php" class="back-button">Back</a>

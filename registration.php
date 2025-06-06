@@ -8,7 +8,7 @@
     <main>
         <section class="registration-page">
             <div>
-                <!-- Photo -->
+                <!-- div -->
             </div>
             <div class="registration-form">
                 <div class="registration-info">

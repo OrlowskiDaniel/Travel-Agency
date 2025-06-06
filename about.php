@@ -6,7 +6,12 @@
 <body>
     <?php include("includes/header.php") ?>
     <main>
-        <h1>about</h1>
+        <section>
+            <div class="main-search-titel">
+                <h2>About us</h2>
+                <p></p>
+            </div>
+        </section>
     </main>
     <?php include("includes/footer.php") ?>
 </body>
