@@ -7,6 +7,21 @@ function hideSidebar() {
     sidebar.style.display = "none"
 }
 
+function showFlightOptions(id) {
+    document.querySelectorAll('.flight-options-overlay').forEach(opt => opt.classList.remove('show'));
+    const overlay = document.getElementById('flightOptions-' + id);
+    if (overlay) overlay.classList.add('show');
+}
+
+function hideFlightOptions() {
+    document.querySelectorAll('.flight-options-overlay').forEach(opt => opt.classList.remove('show'));
+}
+
+function overlayClick(event) {
+    if (event.target.classList.contains('flight-options-overlay')) {
+        hideFlightOptions();
+    }
+}
 function showAdminButtons(event) {
   // Hide all other adminButtons
   document.querySelectorAll('.admin-buttons').forEach(el => {
