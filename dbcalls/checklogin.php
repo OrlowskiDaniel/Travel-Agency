@@ -16,8 +16,19 @@ $result = $stmt->fetch();
 
 if ($result && password_verify($password, $result['password'])) {
     $_SESSION['username'] = $result['username'];
-    echo "<script>" . "window.location.href='../index.php';" . "</script>";
-    exit();
+    $_SESSION['role'] = $result['role'];
+    $_SESSION['email'] = $result['email'];
+    $_SESSION['phonenumber'] = $result['phonenumber'];
+    $_SESSION['creationtime'] = $result['creationtime'];
+    $_SESSION['user_id'] = $result['user_id'];
+    
+    if ($_SESSION['role'] == 'admin') {
+        echo "<script>" . "window.location.href='../admin.php';" . "</script>";
+    }
+    else {
+        echo "<script>" . "window.location.href='../index.php';" . "</script>";
+        exit();
+    }
 }
 else {
     echo $alert;
