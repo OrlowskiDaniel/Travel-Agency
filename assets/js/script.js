@@ -7,6 +7,26 @@ function hideSidebar() {
     sidebar.style.display = "none"
 }
 
+function showAddFormFlight() {
+    const sidebar = document.querySelector(".form-overlay-add")
+    sidebar.style.display = "flex"
+}
+function hideAddFormFlight() {
+    const sidebar = document.querySelector(".form-overlay-add")
+    sidebar.style.display = "none"
+}
+
+function showAddFormHotel() {
+    const sidebar = document.querySelector(".form-overlay-add")
+    sidebar.style.display = "flex"
+}
+function hideAddFormHotel() {
+    const sidebar = document.querySelector(".form-overlay-add")
+    sidebar.style.display = "none"
+}
+
+
+
 function showFlightOptions(id) {
     document.querySelectorAll('.flight-options-overlay').forEach(opt => opt.classList.remove('show'));
     const overlay = document.getElementById('flightOptions-' + id);
