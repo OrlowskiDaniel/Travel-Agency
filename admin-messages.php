@@ -1,5 +1,7 @@
 <?php
-      $page_title = 'Admin-messages';
+session_start();
+$page_title = 'Admin-messages';
+if($_SESSION['role'] == "admin") {
 ?>
 <?php include("includes/head.php"); ?>
 </head>
@@ -52,4 +54,11 @@
     </main>
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
+<?php 
+}
+else {
+    echo "<script>" . "window.location.href='./index.php';" . "</script>";
+    
+}
+?>
 </html>

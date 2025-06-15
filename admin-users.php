@@ -1,5 +1,8 @@
 <?php
-      $page_title = 'Admin-users';
+session_start();
+
+if($_SESSION['role'] == "admin") {
+$page_title = 'Admin-users';
 ?>
 <?php include("includes/head.php"); ?>
 </head>
@@ -21,7 +24,23 @@
                                     echo '<p>Phone: ' . $value['phonenumber'] .' </p>';
                                 echo '</div>';
                                 echo '<div class="buttons-users">';
-                                    echo '<input class="edit-button gray-hover" type="submit" value="Edit">';
+                                    echo '<button onclick="showAdminForm(event)" class="edit-button gray-hover" type="button">Edit</button>';
+                                    echo '<div class="form-overlay" style="display: none;">';
+                                        echo '<form class="editform" action="index.html" method="post">';
+                                            echo '<fieldset>';
+                                                echo '<label for="username">Username:</label>';
+                                                echo '<input type="text" id="username" name="username" placeholder=" ' . $value['username'] .' ">';
+                                                echo '<label for="email">Email:</label>';
+                                                echo '<input type="email" id="email" name="email" placeholder=" ' . $value['email'] .' ">';
+                                                echo '<label for="phonenumber">Phonenumber:</label>';
+                                                echo '<input type="text" id="phonenumber" name="phonenumber" placeholder=" ' . $value['phonenumber'] .' ">';
+                                            echo '</fieldset>';
+                                            echo '<div class="edit-form-buttons">';
+                                            echo '<input class="form-edit-button edit-button" type="submit" value="Save">';
+                                            echo '<button onclick="showAdminForm(event)" class="form-edit-button delete-button" type="button">Close</button>';
+                                            echo '</div>';
+                                        echo '</form>';
+                                    echo '</div>';
                                     echo '<form action="./dbcalls/delete-user.php" method="post">';
                                         echo '<input class="delete-button gray-hover" type="submit" value="Delete">';
                                         echo '<input type="hidden" name="user_id" value="' . $value['user_id'] .'">';
@@ -37,4 +56,11 @@
     </main>
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
+<?php 
+}
+else {
+    echo "<script>" . "window.location.href='./index.php';" . "</script>";
+    
+}
+?>
 </html>
