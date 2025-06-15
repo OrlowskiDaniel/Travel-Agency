@@ -1,4 +1,5 @@
 <?php
+session_start();
       $page_title = 'Contect';
 ?>
 <?php include("includes/head.php"); ?>
