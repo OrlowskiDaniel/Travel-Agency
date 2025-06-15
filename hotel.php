@@ -1,4 +1,5 @@
 <?php
+session_start();
       $page_title = 'Hotel';
 ?>
 <?php include("includes/head.php"); ?>
@@ -14,6 +15,7 @@
             <form class="hotel-search-form" action="hotel-results.php" method="GET">
                 <div class="hotel-search-background">
                     <input class="input-style-2 hotel-search-input" type="text" name="place" placeholder="Where are you going?">
+                    <!-- <datalist></datalist> -->
                     <input class="input-style-2 hotel-search-input" type="date" name="check-in">
                     <input class="input-style-2 hotel-search-input" type="date" name="check-out">
                     <input class="input-style-2 hotel-search-input hotel-search-person" type="number" name="person" placeholder="person" min="1" max="5">

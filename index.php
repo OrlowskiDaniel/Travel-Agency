@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
       $page_title = 'Index';
 ?>
 <?php include("includes/head.php"); ?>
@@ -14,6 +17,7 @@
             <form class="flight-search-form" action="flights-results.php" method="GET">
                 <div class="flight-search-background">
                     <input class="input-style-2 flight-search-input" type="text" name="departure_city" placeholder="From">
+                    <!-- <datalist></datalist> -->
                     <input class="input-style-2 flight-search-input" type="text" name="arrival_city" placeholder="To">
                     <input class="input-style-2 flight-search-input" type="date" name="date">
                     <input class="input-style-2 flight-search-input" type="date" name="return">
