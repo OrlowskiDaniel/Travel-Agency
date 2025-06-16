@@ -19,6 +19,37 @@ if($_SESSION['role'] == "admin") {
                         <th>Booking-date</th>
                         <th>Status</th>
                         <th>Price</th>
+                <h2>Admin Bookings</h2>
+                    <?php include("./dbcalls/read-admin-bookings.php"); ?>
+                
+            <table class="admin-flights-table">
+                <tr class="tags">
+                    <th>User</th>
+                    <th>Booking Date</th>
+                    <th>Status</th>
+                    <th>Flight</th>
+                    <th>Hotel</th>
+                    <th>Total Price</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <?php foreach($bookings as $value): ?>
+                    <tr class="item-box">
+                        <td><?= $value['username'] ?></td>
+                        <td><?= $value['booking_date'] ?></td>
+                        <td><?= $value['status'] ?></td>
+                        <td><?= $value['arrival_city'] ?? '—' ?></td>
+                        <td><?= $value['name'] ?? '—' ?></td>
+                        <td><?= $value['total_price'] ?>€</td>
+                        <td>
+                            <form action="dbcalls/delete-booking.php">
+                                <input type="hidden" name="booking_id" value="<?= $value['booking_id'] ?>">
+                                <input type="submit" value="Cancel" class="delete-button gray-hover">
+                            </form>
+                        </td>
+                        <td>
+                            <button class="edit-button gray-hover">View Details</button>
+                        </td>
                     </tr>
                     <div class="all-items">
                         <?php include("dbcalls/read-flights.php") ?>
@@ -47,6 +78,9 @@ if($_SESSION['role'] == "admin") {
                         
                     </div>
                 </table>
+                <?php endforeach; ?>
+            </table>
+            
             </div>
         </section>
     </main>
