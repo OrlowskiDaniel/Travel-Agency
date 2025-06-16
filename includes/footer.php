@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="additional-info">
-        <p>&copy; Copyright 2025 Travel - Free to use <a href="#">Terms and conditions</a></p>
+        <p>&copy; Copyright 2025 Travel - Free to use <a href="../terms-of-use.php">Terms and conditions</a></p>
         <p></p>
     </div>
 </footer>

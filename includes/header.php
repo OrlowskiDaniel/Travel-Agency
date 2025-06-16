@@ -1,6 +1,6 @@
 <header id="header">
     <div class="header-wrapper">
-        <p class="logo"><a href="./index.php">Travel</a></p>
+        <p class="logo"><a href="./index.php">Travel.com</a></p>
         <nav>
             <ul class="header-sidebar">
                 <li onclick=hideSidebar()><a href="#"><img src="../assets/img/close.png" alt="menu" width="28px" height="28px"></a></li>

@@ -71,7 +71,7 @@ if($_SESSION['role'] == "admin") {
                                                     echo '</div>';
 
                                                     echo '<label for="seats">Seats:</label>';
-                                                    echo '<input type="text" id="seats" name="seats" placeholder="' . $value['seats_available'] .'">';
+                                                    echo '<input type="text" id="seats" name="seats" placeholder="' . ($value['seats_available'] ?? 'N/A') . '">';
 
                                                 echo '</fieldset>';
                                                 echo '<div class="edit-form-buttons">';

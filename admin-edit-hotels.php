@@ -80,8 +80,8 @@ if($_SESSION['role'] == "admin") {
                                                     echo '</div>';
                                                 echo '</fieldset>';
                                                 echo '<div class="edit-form-buttons">';
-                                                echo '<input class="form-edit-button edit-button" type="submit" value="Save">';
-                                                echo '<button onclick="showEditFormHotel(event)" class="form-edit-button delete-button" type="button">Close</button>';
+                                                    echo '<input class="form-edit-button edit-button" type="submit" value="Save">';
+                                                    echo '<button onclick="showEditFormHotel(event)" class="form-edit-button delete-button" type="button">Close</button>';
                                                 echo '</div>';
                                             echo '</form>';
                                         echo '</div>';
