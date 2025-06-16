@@ -33,6 +33,48 @@ session_start();
                 </div>
             </form>
         </section>
+        <section>
+            <div class="user-booking-titel">
+                <h2>My Bookings</h2>
+                <p></p>
+            </div>
+        </section>
+        <section class="user-booking-section">
+            <?php include("dbcalls/read-bookings.php"); ?>
+                <?php if ($bookings): ?>
+            <table class="admin-flights-table">
+                <tr class="tags">
+                    <th>Booking Date</th>
+                    <th>Status</th>
+                    <th>Flight</th>
+                    <th>Hotel</th>
+                    <th>Total Price</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <?php foreach($bookings as $value): ?>
+                    <tr class="item-box">
+                        <td><?= $value['booking_date'] ?></td>
+                        <td><?= $value['status'] ?></td>
+                        <td><?= $value['arrival_city'] ?? '—' ?></td>
+                        <td><?= $value['name'] ?? '—' ?></td>
+                        <td><?= $value['total_price'] ?>€</td>
+                        <td>
+                            <form action="dbcalls/delete-booking.php" method="get">
+                                <input type="hidden" name="booking_id" value="<?= $value['booking_id'] ?>">
+                                <input type="submit" value="Cancel" class="delete-button gray-hover">
+                            </form>
+                        </td>
+                        <td>
+                            <button class="edit-button gray-hover">View Details</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            <?php else: ?>
+                <p>No booking.</p>
+            <?php endif; ?>
+        </section>
     </main>
     <?php include("includes/footer.php") ?>
 </body>
