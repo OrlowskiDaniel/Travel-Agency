@@ -48,9 +48,21 @@ include('../dbcalls/read-hotel-room.php');
                                 <td><?= $room['bed_type'] ?></td>
                                 <td><?= $room['max_guests'] ?? 'N/A' ?></td>
                                 <td>€<?= $room['price_per_night'] ?></td>
-                                <td><form action="../dbcalls/add-hotel-booking.php">
-                                    <input type="submit" class="button-style-1 hotel-room-submit-button" value="Select">
-                                </form></td>
+                                <td>
+                                    <?php if (empty($_SESSION['user_id'])): ?>
+                                        <?php
+                                            echo "<script>" . "window.location.href='../login.php';" . "</script>";
+                                        ?>
+                                    <?php else: ?>
+                                    <form action="../dbcalls/add-booking.php">
+                                        <input type="hidden" value="<?= $_SESSION['user_id'] ?>" name="user_id">
+                                        <input type="hidden" value="<?= $room['room_id'] ?>" name="room_id">
+                                        <input type="hidden" value="<?= $hotel_id ?>" name="hotel_id">
+                                        <input type="hidden" value="<?= $room['price_per_night'] ?>" name="price">
+                                        <input type="submit" class="button-style-1 hotel-room-submit-button" value="Select">
+                                    </form>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
