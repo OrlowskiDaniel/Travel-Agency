@@ -323,7 +323,10 @@ nav a {
     max-height: 44px;
 }
 .header-log-out-button {
-    max-height: 42px;
+    min-height: 46px;
+    min-width: 100px;
+    
+    
 }
 .sidebar-header-user-button {
     background-color: transparent;
@@ -568,6 +571,158 @@ nav a {
 
 
 
+
+.hotel-place-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 3rem 15rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.hotel-titel-foto {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.hotel-titel-foto h2 {
+    font-size: 30px;
+}
+.hotel-titel-foto img {
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.hotel-info-and-rooms {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-info {
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.hotel-info div {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.hotel-info p {
+    margin-bottom: 0.5rem;
+}
+.hotel-info-and-rooms table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.hotel-info-and-rooms th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.hotel-info-and-rooms th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+.hotel-info-and-rooms tr:hover {
+    background-color: #fafafa;
+}
+.hotel-room-submit-button {
+    width: 100px;
+    height: 40px;
+    
+}
+
+
+.review-submit-button {
+    padding: 0.75rem 1.5rem;
+}
+.hotel-reviews-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin: 3rem 15rem;
+}
+
+.hotel-reviews-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.hotel-reviews-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.hotel-reviews-section form textarea {
+    min-height: 100px;
+    min-width: 500px;
+    max-width: 95%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: horizontal;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.hotel-reviews-section form input[type="number"] {
+    min-width: 130px;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100px;
+    max-width: 100%;
+}
+
+.review-submit-button {
+    max-width: 300px;
+    min-width: 170px
+}
+
+.all-reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-box {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.review-box p {
+    margin-bottom: 0.5rem;
+}
+
+.review-box small {
+    color: #777;
+    font-size: 0.875rem;
+}
+
+
+
 .login {
     display: flex;
     flex-direction: row;
@@ -675,6 +830,56 @@ nav a {
 
 
 
+.terms-of-use-section {
+    margin: 5vh 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+}
+.terms-of-use-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.terms-of-use-section div p {
+    font-weight: 550;
+}
+.terms-of-use-section ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.about-us-section {
+    margin: 5vh 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+}
+.about-us-section h3 {
+    margin-top: 20px;
+    color: var(--dark-blue);
+}
+.about-us-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.about-us-section div p {
+    font-weight: 530;
+    font-size: 18px;
+}
+.about-us-section ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
 .contact-page {
     display: flex;
     justify-content: space-between;
@@ -757,6 +962,27 @@ nav a {
 .user-edit-form {
     border: none;
 }
+
+.user-booking-titel {
+    height: 80px;
+    background-color: var(--light-blue);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 20px;
+}
+.user-booking-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin: 3rem 15rem;
+}
+
+
 
 
 footer {
@@ -968,6 +1194,11 @@ footer a {
 @media(max-width: 900px){
 
 
+}
+@media (min-width: 768px) {
+    .hotel-place-section {
+        flex-direction: row;
+    }
 }
 @media(max-width: 600px){
     .header-sidebar {
