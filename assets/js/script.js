@@ -25,10 +25,7 @@ function hideAddFormHotel() {
     sidebar.style.display = "none"
 }
 
-
-
 function showFlightOptions(id) {
-    document.querySelectorAll('.flight-options-overlay').forEach(opt => opt.classList.remove('show'));
     const overlay = document.getElementById('flightOptions-' + id);
     if (overlay) overlay.classList.add('show');
 }
@@ -36,33 +33,62 @@ function showFlightOptions(id) {
 function hideFlightOptions() {
     document.querySelectorAll('.flight-options-overlay').forEach(opt => opt.classList.remove('show'));
 }
-
 function overlayClick(event) {
     if (event.target.classList.contains('flight-options-overlay')) {
         hideFlightOptions();
     }
 }
+
+
+
+function showEditForm(event) {
+  // get the container where button is clicked
+  const buttonContainer = event.target.closest('.buttons-admin-wrap');
+
+  // get form overlay inside that container
+  const thisFormOverlay = buttonContainer.querySelector('.form-overlay');
+
+  // get all form overlays on the page
+  const allFormOverlays = document.querySelectorAll('.form-overlay');
+
+  // loop through all overlays
+  allFormOverlays.forEach(function (overlay) {
+    // show the one clicked hide the others
+    if (overlay === thisFormOverlay) {
+      overlay.style.display = 'flex';
+    } else {
+      overlay.style.display = 'none';
+    }
+  });
+}
+function closeEditForm(event) {
+
+  // find the closest form overlay and hide it
+  const formOverlay = event.target.closest('.form-overlay');
+  if (formOverlay) {
+    formOverlay.style.display = 'none';
+  }
+}
+
+
 function showAdminButtons(event) {
-  // Hide all other adminButtons
+  // hide all other adminButtons
   document.querySelectorAll('.admin-buttons').forEach(el => {
     if (el !== event.target.nextElementSibling) {
       el.style.display = 'none';
     }
   });
 
-  // Toggle the clicked one
+  // toggle the clicked one
   const menu = event.target.nextElementSibling;
   if (menu.style.display === "block") {
     menu.style.display = "none";
   } else {
     menu.style.display = "block";
   }
-
-  // Prevent event from bubbling to document
-  event.stopPropagation();
 }
 
-// Hide all menus when clicking outside
+// hide all menus when clicking outside
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.buttons-admin-wrap')) {
     document.querySelectorAll('.admin-buttons').forEach(el => el.style.display = 'none');
@@ -97,10 +123,15 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+const input = document.getElementById('flight_price');
 
+input.addEventListener('input', () => {
+  const value = input.value;
+  // use regex to match a number with up to two decimal places
+  const regex = /^\d+(\.\d{0,2})?$/;
 
-/* learn how it works, flights search onclick */
- function showFlightOptions() {
-    const sidebar = document.querySelector(".flight-options")
-    sidebar.style.display = "flex"
- }
+  if (!regex.test(value)) {
+    // if invalid, remove the last character
+    input.value = value.slice(0, -1);
+  }
+});
