@@ -56,37 +56,38 @@ if($_SESSION['role'] == "admin") {
                                 echo '<td class="buttons-admin-wrap">';
                                     echo '<img src="assets/img/more.png" onclick="showAdminButtons(event)" alt="menu" width="28px" height="28px"></img>';
                                     echo '<div class="admin-buttons">';
-                                        echo '<input onclick="showEditFormHotel(event)" class="admin-tabel-button edit-button gray-hover" type="submit" value="Edit">';
+                                        echo '<input onclick="showEditForm(event)" class="admin-tabel-button edit-button gray-hover" type="submit" value="Edit">';
                                         echo '<div class="form-overlay" style="display: none;">';
-                                            echo '<form class="editform" action="index.html" method="post">';
+                                            echo '<form class="editform" action="dbcalls/update-hotel.php" method="post">';
                                                 echo '<fieldset>';
-                                                    echo '<label for="hotelname">Hotel name:</label>';
-                                                    echo '<input type="text" id="hotelname" name="hotelname" placeholder=" ' . $value['name'] .' ">';
+                                                    echo '<label for="hotel_name">Hotel name:</label>';
+                                                    echo '<input type="text" id="hotel_name" name="hotel_name" placeholder=" ' . $value['name'] .' "value="' . $value['name'] .'" required>';
                                                     echo '<label for="country">Country:</label>';
-                                                    echo '<input type="text" id="country" name="country" placeholder=" ' . $value['country'] .' ">';
+                                                    echo '<input type="text" id="country" name="country" placeholder=" ' . $value['country'] .' "value="' . $value['country'] .'" required>';
                                                     echo '<label for="phonenumber">Phonenumber:</label>';
-                                                    echo '<input type="text" id="phonenumber" name="phonenumber" placeholder=" ' . $value['city'] .' ">';
+                                                    echo '<input type="text" id="city" name="city" placeholder=" ' . $value['city'] .' "value="' . $value['city'] .'" required>';
                                                     echo '<label for="addres">Addres:</label>';
-                                                    echo '<input type="text" id="addres" name="addres" placeholder=" ' . $value['addres'] .' ">';
+                                                    echo '<input type="text" id="addres" name="addres" placeholder=" ' . $value['addres'] .' "value="' . $value['addres'] .'" required>';
                                                     echo '<div class="form-row">';
                                                     echo '<div class="form-group">';
                                                     echo '<label for="stars">stars:</label>';
-                                                    echo '<input type="text" id="stars" name="stars" placeholder=" ' . $value['stars'] .' ">';
+                                                    echo '<input type="text" id="stars" name="stars" placeholder=" ' . $value['stars'] .' "value="' . $value['stars'] .'" required>';
                                                     echo '</div>';
                                                     echo '<div class="form-group">';
                                                     echo '<label for="rooms_available">Rooms available:</label>';
-                                                    echo '<input type="text" id="rooms_available" name="rooms_available" placeholder=" ' . $value['rooms_available'] .' ">';
+                                                    echo '<input type="text" id="rooms_available" name="rooms_available" placeholder=" ' . $value['rooms_available'] .' "value="' . $value['rooms_available'] .'" required>';
                                                     echo '</div>';
                                                     echo '</div>';
                                                 echo '</fieldset>';
                                                 echo '<div class="edit-form-buttons">';
+                                                    echo '<input type="hidden" name="hotel_id" value="' . $value['hotel_id'] .'">';
                                                     echo '<input class="form-edit-button edit-button" type="submit" value="Save">';
-                                                    echo '<button onclick="showEditFormHotel(event)" class="form-edit-button delete-button" type="button">Close</button>';
+                                                    echo '<button onclick="closeEditForm(event)" class="form-edit-button delete-button" type="button">Close</button>';
                                                 echo '</div>';
                                             echo '</form>';
                                         echo '</div>';
                                         echo '<form action="./dbcalls/delete-flight.php" method="post">';
-                                            echo '<input type="hidden" name="flight_id" value="' . $value['hotel_id'] .'">';
+                                            echo '<input type="hidden" name="hotel_id" value="' . $value['hotel_id'] .'">';
                                             echo '<input class="admin-tabel-button delete-button gray-hover" type="submit" name="" value="Delete">';
                                         echo '</form>';
                                     echo '</div>';
@@ -98,14 +99,14 @@ if($_SESSION['role'] == "admin") {
                     
                 </table>
                 <div class="form-overlay-add" style="display: none;">
-                            <form class="editform" action="index.html" method="post">
+                            <form class="editform" action="./dbcalls/add-hotel.php" method="post">
                                 <fieldset>
                                     
                                     <label for="hotel_name">Hotel name:</label>
                                     <input type="text" id="hotel_name" name="hotel_name" placeholder="">
                                         
-                                    <label for="Country">Country:</label>
-                                    <input type="text" id="Country" name="Country" placeholder="">
+                                    <label for="country">Country:</label>
+                                    <input type="text" id="country" name="country" placeholder="">
 
                                     <label for="city">City:</label>
                                     <input type="text" id="city" name="city" placeholder="">
@@ -118,8 +119,8 @@ if($_SESSION['role'] == "admin") {
                                             <input type="number" min="1" max="5" id="stars" name="stars" placeholder="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="rooms">Rooms available:</label>
-                                            <input type="number" min="0" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="rooms" name="rooms" placeholder="">
+                                            <label for="rooms_available">Rooms available:</label>
+                                            <input type="number" min="0" pattern=" 0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="rooms_available" name="rooms_available" placeholder="">
                                         </div>
                                     </div>
                                 </fieldset>
