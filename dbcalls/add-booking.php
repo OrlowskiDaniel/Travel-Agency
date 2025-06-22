@@ -31,4 +31,3 @@ $stmt->execute();
 
 header("Location: ../user-account.php");
 exit();
-?>

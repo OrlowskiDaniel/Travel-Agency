@@ -34,6 +34,7 @@ session_start();
                 <div class="img-container"><img src="assets/img/hotel (7).jpg" class="box-style-1" alt="hotel-img"><div class="img-text">Hotel</div></div>
                 <div class="img-container"><img src="assets/img/hotel (8).jpg" class="box-style-1" alt="hotel-img"><div class="img-text">Hotel</div></div>
             </div>
+            <!-- <dialog></dialog> -->
         </section>
     </main>
     <?php include("includes/footer.php") ?>

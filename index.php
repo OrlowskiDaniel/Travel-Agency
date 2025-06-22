@@ -36,6 +36,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <div class="img-container"><img src="assets/img/madrid.jpg" class="box-style-1" alt="Madrid"><div class="img-text">Madrid</div></div>
                 <div class="img-container"><img src="assets/img/prague.jpg" class="box-style-1" alt="Prague"><div class="img-text">Prauge</div></div>
             </div>
+            <!-- <dialog></dialog> -->
         </section>
     </main>
     <?php include("includes/footer.php") ?>

@@ -10,17 +10,8 @@ if($_SESSION['role'] == "admin") {
         <section class="admin-section">
             <?php include("includes/admin-sidebar.php") ?>
             <div class="admin-content">
-                <h2>Admin Flights</h2>
-                <table class="admin-flights-table">
-                    <tr class="tags">
-                        <th>User</th>
-                        <th>Flight</th>
-                        <th>Hotel</th>
-                        <th>Booking-date</th>
-                        <th>Status</th>
-                        <th>Price</th>
                 <h2>Admin Bookings</h2>
-                    <?php include("./dbcalls/read-admin-bookings.php"); ?>
+                <?php include("./dbcalls/read-admin-bookings.php"); ?>
                 
             <table class="admin-flights-table">
                 <tr class="tags">
@@ -42,8 +33,9 @@ if($_SESSION['role'] == "admin") {
                         <td><?= $value['name'] ?? '—' ?></td>
                         <td><?= $value['total_price'] ?>€</td>
                         <td>
-                            <form action="dbcalls/delete-booking.php">
+                            <form action="dbcalls/delete-booking.php" method="post">
                                 <input type="hidden" name="booking_id" value="<?= $value['booking_id'] ?>">
+                                <input type="hidden" name="page_url" value="<?= $_SERVER['REQUEST_URI'] ?>">
                                 <input type="submit" value="Cancel" class="delete-button gray-hover">
                             </form>
                         </td>
@@ -51,33 +43,6 @@ if($_SESSION['role'] == "admin") {
                             <button class="edit-button gray-hover">View Details</button>
                         </td>
                     </tr>
-                    <div class="all-items">
-                        <?php include("dbcalls/read-flights.php") ?>
-                        <?php
-                        foreach($bookings as $key => $value) {
-                            echo '<tr class="item-box">';
-                                echo '<td> ' . $value['username'] . ' </td>';
-                                echo '<td> ' . $value['flight'] . ' </td>';
-                                echo '<td> ' . $value['hotel'] . ' </td>';
-                                echo '<td> ' . $value['status'] . ' </td>';
-                                echo '<td> ' . $value['price'] . ' </td>';
-                                echo '<td class="buttons-admin-wrap">';
-                                    echo '<img src="assets/img/more.png" onclick="showAdminButtons(event)" alt="menu" width="28px" height="28px"></img>';
-                                    echo '<div class="admin-buttons">';
-                                        echo '<input class="admin-tabel-button edit-button gray-hover" type="submit" value="View more">';
-                                        echo '<form action="./dbcalls/delete-flight.php" method="post">';
-                                            echo '<input type="hidden" name="flight_id" value="' . $value['booking_id'] .'">';
-                                            echo '<input class="admin-tabel-button delete-button gray-hover" type="submit" name="" value="Delete">';
-                                        echo '</form>';
-                                    echo '</div>';
-                                echo '</td>';
-                            echo '</tr>';
-                        }
-                        ?>
-
-                        
-                    </div>
-                </table>
                 <?php endforeach; ?>
             </table>
             

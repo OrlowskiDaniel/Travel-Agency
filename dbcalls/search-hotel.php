@@ -5,7 +5,7 @@ include("conn.php");
 $hotels = [];
 
 
-if (isset($_GET['place']) && !empty(trim($_GET['place']))) {
+if (isset($_GET['place'])) {
     $place = trim($_GET['place']) . '%';
 
     $sql = "SELECT * FROM Hotels 
