@@ -14,11 +14,27 @@ if (session_status() === PHP_SESSION_NONE) {
                 <h2>Flights</h2>
                 <p></p>
             </div>
+            <?php include("dbcalls/search-flight.php"); ?>
             <form class="flight-search-form" action="flights-results.php" method="GET">
                 <div class="flight-search-background">
-                    <input class="input-style-2 flight-search-input" type="text" name="departure_city" placeholder="From">
-                    <!-- <datalist></datalist> -->
-                    <input class="input-style-2 flight-search-input" type="text" name="arrival_city" placeholder="To">
+                    <input list="flight-search-input-dp" class="input-style-2 flight-search-input" autocomplete="off" type="text" name="departure_city" placeholder="From">
+                    <datalist id="flight-search-input-dp">
+                        <?
+                        foreach ($flights as $flight_city) {
+                            echo '<option value=" '. $flight_city['departure_city'] .'"></option>';
+                        }
+                        ?>
+                        
+                    </datalist>
+                    <input list="flight-search-input-ar" class="input-style-2 flight-search-input" autocomplete="off" type="text" name="arrival_city" placeholder="To">
+                    <datalist id="flight-search-input-ar">
+                        <?
+                        foreach ($flights as $flight_city) {
+                            echo '<option value=" '. $flight_city['arrival_city'] .'"></option>';
+                        }
+                        ?>
+                        
+                    </datalist>
                     <input class="input-style-2 flight-search-input" type="date" name="date">
                     <input class="input-style-2 flight-search-input" type="date" name="return">
                     <button class="button-style-2 flight-search-button" type="submit">Search</button>

@@ -8,11 +8,24 @@ session_start();
     <?php include("includes/header.php") ?>
     <main>
         <section>
+            <?php include("dbcalls/read-flights.php"); ?>
             <form class="flight-search-form" action="flights-results.php" method="GET">
                 <div class="flight-search-background">
-                    <input class="input-style-2 flight-search-input" type="text" name="departure_city" placeholder="From">
-                    <!-- <datalist></datalist> -->
-                    <input class="input-style-2 flight-search-input" type="text" name="arrival_city" placeholder="To">
+                    <input list="flight-search-input-dp" class="input-style-2 flight-search-input" autocomplete="off" type="text" name="departure_city" placeholder="From">
+                    <datalist id="flight-search-input-dp">
+                        <?php foreach ($flights as $flight_city): ?>
+                            <option value="<?= trim($flight_city['departure_city']) ?>"></option>
+                        <?php endforeach; ?>
+                    </datalist>
+
+                    <input list="flight-search-input-ar" class="input-style-2 flight-search-input" autocomplete="off" type="text" name="arrival_city" placeholder="To">
+                    
+                    <datalist id="flight-search-input-ar">
+                        <?php foreach ($flights as $flight_city): ?>
+                            <option value="<?= trim($flight_city['arrival_city']) ?>"></option>
+                        <?php endforeach; ?>
+                    </datalist>
+
                     <input class="input-style-2 flight-search-input" type="date" name="date">
                     <input class="input-style-2 flight-search-input" type="date" name="return">
                     <button class="button-style-2 flight-search-button" type="submit">Search</button>
@@ -20,8 +33,8 @@ session_start();
             </form>
         </section>
         <section class="search-results-section">
-            <h2>Recommended departing flights</h2>
             <?php include("dbcalls/search-flight.php"); ?>
+            <h2>Recommended departing flights</h2>
             <?php if ($flights): ?>
                 <?php foreach ($flights as $flight): ?>
                     <div onclick="showFlightOptions(<?= $flight['flight_id'] ?>)" class="search-result-flight box-style-2">
@@ -38,7 +51,7 @@ session_start();
                         </div>
                     </div>
                     <div class="flight-options-overlay" id="flightOptions-<?= $flight['flight_id'] ?>" onclick="overlayClick(event)">
-                        <div class="flight-options" onclick="event.stopPropagation();">
+                        <div class="flight-options">
                             <button class="close-btn" onclick="hideFlightOptions()"><img src="./assets/img/cancel.png" alt=""></button>
                             <h3>Choose a booking option</h3>
                             <div class="option-box">

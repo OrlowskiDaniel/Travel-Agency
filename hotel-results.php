@@ -8,10 +8,18 @@ session_start();
     <?php include("includes/header.php") ?>
     <main>
         <section>
+            <?php include("dbcalls/search-hotel.php"); ?>
             <form class="hotel-search-form" action="hotel-results.php" method="GET">
                 <div class="hotel-search-background">
-                    <input class="input-style-2 hotel-search-input" type="text" name="place" placeholder="Where are you going?">
-                    <!-- <datalist></datalist> -->
+                    <input list="hotel-search-input" autocomplete="off" class="input-style-2 hotel-search-input" type="text" name="place" placeholder="Where are you going?">
+                    <datalist id="hotel-search-input">
+                        <?
+                        foreach ($hotels as $hotel) {
+                            echo '<option value=" '. $hotel['name'] .'"></option>';
+                        }
+                        ?>
+                        
+                    </datalist>
                     <input class="input-style-2 hotel-search-input" type="date" name="check-in">
                     <input class="input-style-2 hotel-search-input" type="date" name="check-out">
                     <input class="input-style-2 hotel-search-input hotel-search-person" type="number" name="person" placeholder="person" min="1" max="5">
@@ -21,7 +29,6 @@ session_start();
         </section>
         <section class="search-results-section">
             <h2>Recommended hotels</h2>
-            <?php include("dbcalls/search-hotel.php"); ?>
             <?php if ($hotels): ?>
                 <?php foreach ($hotels as $hotel): ?>
                     <div class="search-result-hotels box-style-2">
