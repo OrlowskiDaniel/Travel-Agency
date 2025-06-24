@@ -18,5 +18,5 @@ $stmt->execute([
     ':comment' => $comment,
 ]);
 
-header("Location: ..//hotel$hotel_id.php");
+header("Location: ../hotels/hotel$hotel_id.php");
 exit;

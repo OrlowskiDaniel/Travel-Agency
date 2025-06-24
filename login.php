@@ -18,6 +18,7 @@
                     <input type="password" name="password" class="login-form-input input-style-1" placeholder="Password">
                     <input type="submit" value="Sign in" class="login-form-submit button-style-1">
                     <p>Don't have an account? <a href="registration.php">Sign up</a></p>
+                    <p><a href="#">Forgot your password?</a></p>
                     <div class="login-line"></div>
                 </form>
                 

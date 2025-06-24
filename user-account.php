@@ -60,7 +60,7 @@ session_start();
                         <td><?= $value['name'] ?? '—' ?></td>
                         <td><?= $value['total_price'] ?>€</td>
                         <td>
-                            <form action="dbcalls/delete-booking.php" method="post">
+                            <form action="dbcalls/delete-booking.php" method="post" onsubmit="return confirm('Do you really want to cancel your booking?');">
                                 <input type="hidden" name="booking_id" value="<?= $value['booking_id'] ?>">
                                 <input type="hidden" name="page_url" value="<?= $_SERVER['REQUEST_URI'] ?>">
                                 <input type="submit" value="Cancel" class="delete-button gray-hover">
