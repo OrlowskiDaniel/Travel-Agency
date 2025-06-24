@@ -97,8 +97,14 @@ document.addEventListener('click', function(e) {
 
 
 window.addEventListener("DOMContentLoaded", function () {
-  var currentPath = window.location.pathname.split("/").pop(); // g et current file name
+  var currentPath = window.location.pathname.split("/").pop(); // get current file name
   var header = document.getElementById("admin-side-bar");
+
+  if (!header) {
+    console.warn('Admin side bar not found.');
+    return;
+  }
+
   var btns = header.getElementsByClassName("btn");
 
   for (var i = 0; i < btns.length; i++) {
@@ -113,6 +119,12 @@ window.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("DOMContentLoaded", function () {
   var currentPath = window.location.pathname.split("/").pop(); // get current file name
   var header = document.getElementById("header");
+
+  if (!header) {
+    console.warn('Header not found.');
+    return;
+  }
+
   var btns = header.getElementsByClassName("header-btn");
 
   for (var i = 0; i < btns.length; i++) {
@@ -123,16 +135,24 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-const input = document.getElementById('flight_price');
+window.addEventListener('DOMContentLoaded', function () {
+  const input = document.getElementById('flight_price');
 
-input.addEventListener('input', () => {
-  const value = input.value;
-  // use regex to match a number with up to two decimal places
-  const regex = /^\d+(\.\d{0,2})?$/;
+  if (!input) {
+    console.warn('Input not found.');
+    return;
+  }
 
-  if (!regex.test(value)) {
-    // if invalid, remove the last character
-    input.value = value.slice(0, -1);
+  input.addEventListener('input', () => {
+    const value = input.value;
+    const regex = /^\d+(\.\d{0,2})?$/;
+
+    if (!regex.test(value)) {
+      input.value = value.slice(0, -1);
+    }
+  });
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   const dialog = document.querySelector(".dialog");
 
