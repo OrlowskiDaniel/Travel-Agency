@@ -133,5 +133,27 @@ input.addEventListener('input', () => {
   if (!regex.test(value)) {
     // if invalid, remove the last character
     input.value = value.slice(0, -1);
+window.addEventListener("DOMContentLoaded", () => {
+  const dialog = document.querySelector(".dialog");
+
+  if (!dialog) {
+    console.warn("Dialog not found.");
+    return;
   }
+
+  const dialogTitle = dialog.querySelector(".dialogTitel");
+  const dialogText = dialog.querySelector(".dialogText");
+  const closeButton = dialog.querySelector(".dialogCloseButton");
+
+  document.querySelectorAll(".photo-grid img").forEach(img => {
+    img.addEventListener("click", () => {
+      dialogTitle.textContent = img.dataset.title;
+      dialogText.textContent = img.dataset.description;
+      dialog.showModal();
+    });
+  });
+
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+  });
 });
