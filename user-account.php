@@ -70,6 +70,19 @@ session_start();
                             <button class="edit-button gray-hover">View Details</button>
                         </td>
                     </tr>
+                        <div class="form-overlay" style="display: none;">
+                            <div class="booking-info-box flight-booking-info">
+                                <h3>Flight Booking</h3>
+                                <p>From <?= $value['departure_city'] ?? '—' ?> To <?= $value['arrival_city'] ?? '—' ?></p>
+                                <p>On <?= $value['date'] ?? '—' ?> </p>
+                                <p></p>
+                            </div>
+                            <div class="booking-info-box hotel-booking-info">
+                                <h3>Hotel Booking</h3>
+
+                            </div>
+                            <button onclick="closeEditForm(event)" class="form-edit-button delete-button" type="button">Close</button>
+                        </div>
                 <?php endforeach; ?>
             </table>
             <?php else: ?>
